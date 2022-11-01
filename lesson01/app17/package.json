@@ -1,9 +1,10 @@
 {
   "name": "app17",
   "version": "1.0.0",
-  "description": "First NPM Project",
+  "description": "First NPM Project for MWA",
   "main": "app17.js",
   "scripts": {
+    "start": "node app17.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,6 +14,6 @@
   "author": "Binod Gurung",
   "license": "ISC",
   "dependencies": {
-    "express": "~4.17.2"
+    "express": "^4.18.2"
   }
 }
