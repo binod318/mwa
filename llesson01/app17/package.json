@@ -1,0 +1,18 @@
+{
+  "name": "app17",
+  "version": "1.0.0",
+  "description": "First NPM Project",
+  "main": "app17.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NODE",
+    "NPM"
+  ],
+  "author": "Binod Gurung",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.17.2"
+  }
+}

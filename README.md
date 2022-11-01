@@ -1,2 +1,2 @@
 # mwa
-Modern web application code
+Modern Web Application Assignments
