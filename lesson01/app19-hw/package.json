@@ -1,0 +1,20 @@
+{
+  "name": "app19-express",
+  "version": "1.0.0",
+  "description": "Rebuild httpmodule assignment using express",
+  "main": "app19.js",
+  "scripts": {
+    "start": "node app19.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NODE",
+    "EXPRESS"
+  ],
+  "author": "Binod Gurung",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}

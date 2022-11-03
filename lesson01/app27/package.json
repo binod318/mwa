@@ -1,0 +1,20 @@
+{
+  "name": "app27",
+  "version": "1.0.0",
+  "description": "First demo application",
+  "main": "app27.js",
+  "scripts": {
+    "start": "node app27.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NODE",
+    "express"
+  ],
+  "author": "Binod Gurung",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}

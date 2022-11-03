@@ -1,0 +1,19 @@
+{
+  "name": "app18",
+  "version": "1.0.0",
+  "description": "My first Express application",
+  "main": "app18.js",
+  "scripts": {
+    "start": "node app18.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NODE",
+    "express"
+  ],
+  "author": "Binod Gurung",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

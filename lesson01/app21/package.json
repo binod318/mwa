@@ -1,0 +1,20 @@
+{
+  "name": "app21",
+  "version": "1.0.0",
+  "description": "My first Express application with env",
+  "main": "app21.js",
+  "scripts": {
+    "start": "node app21.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NODE",
+    "express"
+  ],
+  "author": "Binod Gurung",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2"
+  }
+}
