@@ -3,6 +3,10 @@ require('dotenv').config();
 const app = express();
 const routes = require('./routes');
 
+//for form data POST parsing
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
 app.use("/api", routes);
 
 //default routing for error message
