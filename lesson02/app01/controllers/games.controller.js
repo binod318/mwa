@@ -30,7 +30,8 @@ module.exports.getOne = function(req, res){
     const gamesCollection = db.collection("games");
 
     const game = {_id: ObjectId(id)};
-    gamesCollection.find(game).toArray(function(err, game){
+
+    gamesCollection.findOne(game, function(err, game){
         if(err){
             res.status(parseInt(process.env.SERVER_ERROR_STATUS_CODE)).json({error: err});
         } else {

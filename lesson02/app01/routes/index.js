@@ -8,13 +8,14 @@ router.route("/games")
 router.route("/games/create")
     .post(gamesController.createGame);
 
-router.route("/games/:gameId") // colon(:) is variable/placeholder 
+// colon(:) is variable/placeholder 
+router.route("/games/:gameId") 
     .get(gamesController.getOne);
 
 router.route("/games/update")
     .post(gamesController.updateGame);
 
-router.route("/games/delete/:gameId") // colon(:) is variable/placeholder 
+router.route("/games/delete/:gameId")
     .get(gamesController.deleteGame);
 
 module.exports = router;
