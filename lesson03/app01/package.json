@@ -1,0 +1,23 @@
+{
+  "name": "app01",
+  "version": "1.0.0",
+  "description": "First mongoose application",
+  "main": "app01.js",
+  "scripts": {
+    "start": "node app01.js",
+    "dev": "nodemon --inspect",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NODE",
+    "EXPRESS",
+    "MONGOOSE"
+  ],
+  "author": "Binod Gurung",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.1"
+  }
+}

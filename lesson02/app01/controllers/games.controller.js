@@ -8,10 +8,10 @@ module.exports.getAll = function(req, res){
     let count= 7;
 
     if(req.query && req.query.offset){
-        offset = parseInt(req.query.offset);
+        offset = parseInt(req.query.offset, 10);
     }
     if(req.query && req.query.count){
-        count = req.query.count > 7 ? count : parseInt(req.query.count);
+        count = req.query.count > 7 ? count : parseInt(req.query.count, 10);
     }
 
     const db = dbConnection.get();
