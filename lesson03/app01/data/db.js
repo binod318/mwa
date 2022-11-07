@@ -41,28 +41,15 @@ process.on("SIGTERM", function(){
     // });
 });
 
-process.on("SIGUSR2", function(){
-    console.log("Restart received");
+process.once("SIGUSR2", function(){
     mongoose.connection.close(function(){
-        console.log("Mongoose close success.....a.");
-        //process.exit(0);
+        console.log("Mongoose disconnected by app restart.");
+        process.kill(process.pid, "SIGUSR2");
+    });
+})
+
+process.on("SIGHUP", function(){
+    mongoose.connection.close(function(){
         process.kill(process.pid, "SIGUSR2");
     });
 });
-process.on("SIGUSR1", function(){
-    console.log("SIGUSR1 received");
-    mongoose.connection.close(function(){
-        console.log("Mongoose close success..dff...a.");
-        //process.exit(0);
-        process.kill(process.pid, "SIGUSR1");
-    });
-});
-
-// process.on("SIGHUP", function(){
-//     console.log("SIGHUP received");
-//     mongoose.connection.close(function(){
-//         console.log("Mongoose close success..dffdd...a.YXXXX");
-//         //process.exit(0);
-//         process.kill(process.pid, "SIGUSR2");
-//     });
-// });
