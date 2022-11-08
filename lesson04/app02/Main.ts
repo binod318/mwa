@@ -1,4 +1,5 @@
-import { DE_Student } from "./DE_Students";
+import { DE_Student } from "./DE_Students.js";
+//const DE_Student = require('./DE_Students');
 
 let jack:DE_Student = new DE_Student(123, "Jack", 3.0);
 
