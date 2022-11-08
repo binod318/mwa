@@ -93,7 +93,7 @@ module.exports.addOne = function(req, res){
         designers  
     } = req.body;
 
-    Game.create(newGame, function(err, game){
+    Game.create(newGame, function(err, game){ //game response is Game schema object
         const response = {
             status: process.env.CREATE_SUCCESS_STATUS_CODE,
             message: game

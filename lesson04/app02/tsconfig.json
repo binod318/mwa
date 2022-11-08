@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "outDir": "output",
+        "experimentalDecorators": true, //decorator is still experimental on JS side
+        "emitDecoratorMetadata": true
+    }
+}
