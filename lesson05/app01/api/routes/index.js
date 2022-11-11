@@ -1,5 +1,6 @@
 const express = require('express');
 const gamesController = require("../controllers/games.controller");
+const usersController = require('../controllers/users.controller');
 const router = express.Router();
 
 router.route("/games")
@@ -12,5 +13,12 @@ router.route("/games/:gameId")
     .put(gamesController.updateOne)
     .patch(gamesController.partialUpdateOne)
     .delete(gamesController.deleteGame);
+
+router.route("/users")
+    .get(usersController.getAll)
+    .post(usersController.addOne);
+
+router.route("/users/login")
+    .post(usersController.login);
 
 module.exports = router;
