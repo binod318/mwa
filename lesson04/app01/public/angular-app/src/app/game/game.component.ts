@@ -10,7 +10,9 @@ import { Game } from '../games/games.component';
 })
 export class GameComponent implements OnInit {
   game!: Game;
-  constructor(private _gamesService:GamesDataService, private _route:ActivatedRoute) { }
+  constructor(private _gamesService:GamesDataService, private _route:ActivatedRoute) { 
+    this.game = new Game("","",0,0);
+  }
 
   ngOnInit(): void {
     const gameId = this._route.snapshot.params["gameId"];

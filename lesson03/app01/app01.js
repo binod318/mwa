@@ -10,10 +10,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use((req, res, next) => {
+app.use("/api", (req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-COntrol-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 })
+
 //express static server
 app.use(express.static(path.join(__dirname, "public")));
 

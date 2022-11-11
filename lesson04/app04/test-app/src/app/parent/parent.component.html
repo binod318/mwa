@@ -1,0 +1,16 @@
+<p>parent works!</p>
+
+Parent X: <input type="number" [(ngModel)] = "parentX"/> <br/>
+
+Parent Y: <input type="number" [(ngModel)] = "parentY"/> <br/>
+
+Parent A: <input type="number" [(ngModel)]="parentA"/> <br/>
+
+<app-child (addEvent)="setParentZ($event)" [childX]="parentX" [childY]="parentY" 
+            (multiplyEvent)="setParentA($event)" [childA]="parentA">
+
+</app-child>
+
+Parent M: {{parentM}} <br/>
+
+Parent Z: {{parentZ}} <br/>
