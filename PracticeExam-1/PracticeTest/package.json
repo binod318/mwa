@@ -1,0 +1,26 @@
+{
+  "name": "test1",
+  "version": "1.0.0",
+  "description": "Test project",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm run start_backend | npm run start_frontend",
+    "start_backend": "npm run dev",
+    "start_frontend": "cd public/ && cd angular-app/ && npm start",
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NODE",
+    "EXPRESS",
+    "MONGODB",
+    "MONGOOSE"
+  ],
+  "author": "Binod Gurung",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  }
+}

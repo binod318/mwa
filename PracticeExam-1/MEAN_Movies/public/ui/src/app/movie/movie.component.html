@@ -1,0 +1,13 @@
+<h3>
+    Title: {{movie.title}}
+</h3>
+
+Year: {{movie.year}} <br/>
+Type: {{movie.type}} <br/>
+Release date: {{movie.released | date:"MM-yyyy"}} <br/>
+genres: {{movie.genres}} <br/>
+directors: {{movie.directors}} <br/>
+rating on tomatoes: {{movie.tomatoes && movie.tomatoes.viewer && movie.tomatoes.viewer.rating}} <br/>
+poster: <br/> 
+<img src="{{movie.poster}}" alt="poster" height="400px"/> <br/>
+<button (click)="delete(movie._id)">delete</button>

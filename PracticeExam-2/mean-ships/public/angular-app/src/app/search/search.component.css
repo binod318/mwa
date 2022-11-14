@@ -1,0 +1,10 @@
+.search {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    margin-bottom: 10px;
+}
+
+input[type='submit']{
+    width: 100px;
+}

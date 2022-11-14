@@ -1,0 +1,9 @@
+<h2>Id: {{inspection.id}}</h2>
+
+Business name: {{inspection.business_name}} <br/>
+Date: {{inspection.date}} <br/>
+Result: {{inspection.result}} <br/>
+City: {{inspection.address && inspection.address.city}} <br/>
+Zip: {{inspection.address && inspection.address.zip}} <br/>
+
+<button (click)="delete(inspection._id)">delete</button>

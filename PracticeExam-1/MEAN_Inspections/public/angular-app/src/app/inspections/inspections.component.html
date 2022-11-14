@@ -1,0 +1,9 @@
+<h1>Inspection list</h1>
+
+<ul>
+    <li *ngFor="let inspection of inspections">
+        <a routerLink="/inspection/{{inspection._id}}">
+            {{inspection.business_name}}
+        </a>
+    </li>
+</ul>

@@ -1,0 +1,17 @@
+<form (ngSubmit)="onSearch()">
+    <label>Latitude</label>
+    <input name="latitude" [(ngModel)]="latitude"/>
+    <label>Longitude</label>
+    <input name="longitude" [(ngModel)]="longitude"/>
+    <label>Distance</label>
+    <input name="distance" [(ngModel)]="distance"/>
+    <input type="submit" value="Search"/>
+</form>
+
+<ul>
+    <li *ngFor="let ship of ships">
+        <a routerLink="{{ship._id}}">
+            {{ship.depth}}--{{ship.coordinates}}
+        </a>
+    </li>
+</ul>

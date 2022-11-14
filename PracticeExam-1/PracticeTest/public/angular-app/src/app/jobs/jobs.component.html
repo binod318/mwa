@@ -1,0 +1,20 @@
+<h1>Job list</h1>
+
+<ul>
+    <li *ngFor="let job of jobs">
+        <a routerLink="/job/{{job._id}}">
+            {{job.title}}
+        </a>
+    </li>
+</ul>
+
+Jobs display per page
+<select [(ngModel)]="pageSize" (ngModelChange)="onSizeChange()">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+</select>
+
+<br/>
+<button (click)="onPrevious()" [disabled]="pageNumber ===1">Previous</button>
+<button (click)="onNext()" [disabled]="nextBtnDisable">Next</button>
