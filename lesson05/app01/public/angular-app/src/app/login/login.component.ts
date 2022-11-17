@@ -1,10 +1,18 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
+import { UsersDataService } from '../users-data.service';
 
-class Credentials {
+export class Credentials {
+  #name!:string;
   #username!: string;
   #password!: string;
 
+  get name(): string {
+    return this.#name;
+  }
+  set name(name: string) {
+    this.#name = name;
+  }
   get username(): string {
     return this.#username;
   }
@@ -18,16 +26,32 @@ class Credentials {
     this.#password = password;
   }
 
-  constructor(username: string, password: string){
-    this.#username = username;
-    this.#password = password;
+  // constructor(username: string, password: string){
+  //   this.#username = username;
+  //   this.#password = password;
+  // }
+
+  constructor(){
+
   }
 
   ToJSON(){
     return {
+      name: this.name,
       username: this.username,
       password: this.password
     }
+  }
+
+  fillFromFormGroup(form: FormGroup): void{
+    this.name = form.value.name;
+    this.username = form.value.username;
+    this.password = form.value.password;
+  }
+
+  fillFromNgForm(form: NgForm): void{
+    this.username = form.value.username;
+    this.password = form.value.password;
   }
 }
 
@@ -38,12 +62,12 @@ class Credentials {
 })
 export class LoginComponent implements OnInit {
   
-  user: Credentials = new Credentials("Name", "pass");
+  user: Credentials = new Credentials();
   
   @ViewChild("loginForm") //field inject from form
   loginForm!: NgForm;
 
-  constructor() { }
+  constructor(private _usersService:UsersDataService) { }
 
   ngOnInit(): void {
 
@@ -53,7 +77,16 @@ export class LoginComponent implements OnInit {
 
   }
 
-  onLogin(loginForm: NgForm){
-    console.log(loginForm.value);
+  onLogin(){
+    //console.log(loginForm.value);
+    const user:Credentials = new Credentials();
+    user.fillFromNgForm(this.loginForm);
+    this._usersService.login(user).subscribe({
+      next: (result) => {
+        
+      },
+      error: () => {},
+      complete: () => {}
+    });
   }
 }

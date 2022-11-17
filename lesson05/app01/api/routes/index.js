@@ -1,24 +1,9 @@
 const express = require('express');
-const gamesController = require("../controllers/games.controller");
-const usersController = require('../controllers/users.controller');
+const gamesRoute = require('./games');
+const usersRoute = require('./users');
 const router = express.Router();
 
-router.route("/games")
-    .get(gamesController.getAll)
-    .post(gamesController.addOne);
-
-// colon(:) is variable/placeholder 
-router.route("/games/:gameId") 
-    .get(gamesController.getOne)
-    .put(gamesController.updateOne)
-    .patch(gamesController.partialUpdateOne)
-    .delete(gamesController.deleteGame);
-
-router.route("/users")
-    .get(usersController.getAll)
-    .post(usersController.addOne);
-
-router.route("/users/login")
-    .post(usersController.login);
+router.use('/games', gamesRoute);
+router.use('/users', usersRoute);
 
 module.exports = router;

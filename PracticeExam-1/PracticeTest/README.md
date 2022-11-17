@@ -6,10 +6,12 @@ This package has two projects.
 
 nodemon package must be installed globally to run this package.
 
-node_modules must be installed running npm install on these tow folders.
-1. main folder
+node_modules must be installed using npm install on these two folders.
+1. root level
 2. /public/angular-app folder
 
-use npm start command to run both application at once. UI is running on port 4200 and service on 3000
+use npm start command on root level to run both application at once. 
+
+UI is running on port 4200 and service on 3000.
 
 

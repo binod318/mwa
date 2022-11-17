@@ -1,4 +1,11 @@
-<form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm)">
+<div *ngIf="hasSuccess" class="alert alert-success">
+    <p>{{successMessage}}</p>
+</div>
+<div *ngIf="hasError" class="alert alert-danger">
+    <p>{{errorMessage}}</p>
+</div>
+
+<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
     <div>
         <label>
             Name: <input formControlName="name" placeholder="Your name"/>
