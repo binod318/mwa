@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void{
-    const user: Credentials = new Credentials();
+    const user: Credentials = new Credentials("","");
     user.fillFromFormGroup(this.registrationForm);
 
     this._usersService.addUser(user).subscribe({

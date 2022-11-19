@@ -1,6 +1,7 @@
 <nav>
     <button routerLink="/">Home</button>
     <button routerLink="/games">Games</button>
-    <button routerLink="/register">Register</button>
+    <button routerLink="/register" *ngIf="!isLoggedIn">Register</button>
+    <button routerLink="/profile" *ngIf="isLoggedIn">Profile</button>
     <button routerLink="/login">Login</button>
 </nav>

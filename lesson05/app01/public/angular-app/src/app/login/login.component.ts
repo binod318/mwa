@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
+import { AuthenticationService } from '../authentication.service';
 import { UsersDataService } from '../users-data.service';
 
 export class Credentials {
@@ -26,13 +27,9 @@ export class Credentials {
     this.#password = password;
   }
 
-  // constructor(username: string, password: string){
-  //   this.#username = username;
-  //   this.#password = password;
-  // }
-
-  constructor(){
-
+  constructor(username: string, password: string){
+    this.#username = username;
+    this.#password = password;
   }
 
   ToJSON(){
@@ -53,6 +50,11 @@ export class Credentials {
     this.username = form.value.username;
     this.password = form.value.password;
   }
+
+  reset(): void{
+    this.username = "";
+    this.password = "";
+  }
 }
 
 @Component({
@@ -62,31 +64,56 @@ export class Credentials {
 })
 export class LoginComponent implements OnInit {
   
-  user: Credentials = new Credentials();
+  get isLoggedIn(): boolean {
+    return this._authenticationService.isLoggedIn;
+  }
+
+  name!:string;
+  user: Credentials = new Credentials("", "");
   
   @ViewChild("loginForm") //field inject from form
   loginForm!: NgForm;
 
-  constructor(private _usersService:UsersDataService) { }
+  constructor(private _usersService:UsersDataService, private _authenticationService:AuthenticationService) { }
 
   ngOnInit(): void {
-
+    this.name = this._authenticationService.name;
+  
     setTimeout(() => {
-      this.loginForm.setValue(this.user.ToJSON());
+      if(this.loginForm){
+        this.loginForm.setValue(this.user.ToJSON());
+      }
     }, 0);
 
   }
 
   onLogin(){
-    //console.log(loginForm.value);
-    const user:Credentials = new Credentials();
-    user.fillFromNgForm(this.loginForm);
-    this._usersService.login(user).subscribe({
+    //onst user:Credentials = new Credentials();
+    this.user.fillFromNgForm(this.loginForm);
+
+    this._usersService.login(this.user).subscribe({
       next: (result) => {
-        
+        //this.isLoggedIn = true;
+        this._authenticationService.token = result.token;
       },
       error: () => {},
       complete: () => {}
     });
+  }
+
+  reset(){
+    this.user.reset();
+  }
+
+  removeToken(){
+    localStorage.removeItem("token");
+  }
+
+  onLogout(){
+    //this.isLoggedIn = false;
+
+    //this.name = "";
+    this.removeToken();
+    this.user.reset();
   }
 }
