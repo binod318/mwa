@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  games_service_base_url: "BASE_URL for games service"
 };
 
 /*
